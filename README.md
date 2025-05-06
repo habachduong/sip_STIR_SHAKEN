@@ -17,7 +17,11 @@ Even fully authenticated calls can be tagged due to **reputation-based analytics
 - STIR/SHAKEN attestation does **not influence** spam labeling significantly.
 - Carriers apply **independent call labeling** rules.
 - No SIP-level method to extract “Spam Likely” / “Scam Risk” tags.
-
+## Problem Summary
+CNAM and spam labels like “Spam Likely”, “Scam Risk”, or “Verified Caller” are determined by the receiving carrier.
+These labels are not transmitted in SIP or RTP packets — they are delivered to the end device over proprietary signaling protocols, and only appear on the screen of the phone receiving the call.
+As someone with over 10 years of hands-on experience with Asterisk, I can state with full confidence: this information is never present in SIP INVITE, headers, or any part of the SIP protocol.
+Therefore, it is technically impossible to detect CNAM or spam tagging using Asterisk or any SIP-based system or proxy (e.g., Kamailio, OpenSIPS, FreeSWITCH).
 ---
 
 ## ✅ Solution
